@@ -1,17 +1,17 @@
-"use client";
+"use client"
 
-import Link from "next/link";
-import { ModeToggle } from "./mode-toggle";
-import { Button } from "@/components/ui/button";
-import { usePathname } from "next/navigation";
-import { LockKeyhole } from "lucide-react";
+import Link from "next/link"
+import { ModeToggle } from "./mode-toggle"
+import { Button } from "@/components/ui/button"
+import { usePathname } from "next/navigation"
+import { LockKeyhole } from "lucide-react"
 
 export function Header() {
-  const pathname = usePathname();
+  const pathname = usePathname()
 
   return (
     <header className="border-b">
-      <div className="flex h-16 items-center justify-between">
+      <div className="container mx-auto flex h-16 items-center justify-between">
         <div className="flex items-center gap-6">
           <Link href="/" className="flex items-center gap-2">
             <LockKeyhole className="h-6 w-6 text-primary" />
@@ -21,9 +21,7 @@ export function Header() {
             <Link
               href="/passwords"
               className={`text-sm font-medium transition-colors hover:text-primary ${
-                pathname === "/passwords"
-                  ? "text-primary"
-                  : "text-muted-foreground"
+                pathname === "/passwords" ? "text-primary" : "text-muted-foreground"
               }`}
             >
               Passwords
@@ -48,5 +46,6 @@ export function Header() {
         </div>
       </div>
     </header>
-  );
+  )
 }
+

@@ -1,6 +1,6 @@
-import { Button } from "@/components/ui/button";
-import { LockKeyhole, ShieldCheck, CreditCard } from "lucide-react";
-import Link from "next/link";
+import { Button } from "@/components/ui/button"
+import { LockKeyhole, ShieldCheck, CreditCard } from "lucide-react"
+import Link from "next/link"
 
 export default function Home() {
   return (
@@ -22,15 +22,12 @@ export default function Home() {
         </div>
       </header>
       <main className="flex-1">
-        <section className="py-24 md:py-32">
+        <section className="mx-auto container py-24 md:py-32">
           <div className="grid gap-10 md:grid-cols-2 md:gap-16">
             <div className="flex flex-col justify-center space-y-6">
-              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-                Secure Your Digital Life
-              </h1>
+              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">Secure Your Digital Life</h1>
               <p className="text-xl text-muted-foreground">
-                Store your passwords and cards securely with our password
-                manager. Never forget a password again.
+                Store your passwords and cards securely with our password manager. Never forget a password again.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <Link href="/passwords">
@@ -65,5 +62,6 @@ export default function Home() {
         </section>
       </main>
     </div>
-  );
+  )
 }
+
