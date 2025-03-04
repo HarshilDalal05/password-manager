@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { ModeToggle } from "./mode-toggle"
-import { Button } from "@/components/ui/button"
-import { usePathname } from "next/navigation"
-import { LockKeyhole } from "lucide-react"
+import Link from "next/link";
+import { ModeToggle } from "./mode-toggle";
+import { usePathname } from "next/navigation";
+import { LockKeyhole } from "lucide-react";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 
-export function Header() {
-  const pathname = usePathname()
+export function Navbar() {
+  const pathname = usePathname();
 
   return (
     <header className="border-b">
@@ -15,20 +15,22 @@ export function Header() {
         <div className="flex items-center gap-6">
           <Link href="/" className="flex items-center gap-2">
             <LockKeyhole className="h-6 w-6 text-primary" />
-            <span className="text-lg font-bold">Password Manager</span>
+            <span className="text-2xl font-bold">Password Manager</span>
           </Link>
           <nav className="hidden md:flex gap-6">
             <Link
               href="/passwords"
-              className={`text-sm font-medium transition-colors hover:text-primary ${
-                pathname === "/passwords" ? "text-primary" : "text-muted-foreground"
+              className={`text-md font-medium transition-colors hover:text-primary ${
+                pathname === "/passwords"
+                  ? "text-primary"
+                  : "text-muted-foreground"
               }`}
             >
               Passwords
             </Link>
             <Link
               href="/cards"
-              className={`text-sm font-medium transition-colors hover:text-primary ${
+              className={`text-md font-medium transition-colors hover:text-primary ${
                 pathname === "/cards" ? "text-primary" : "text-muted-foreground"
               }`}
             >
@@ -38,14 +40,14 @@ export function Header() {
         </div>
         <div className="flex items-center gap-4">
           <ModeToggle />
-          <Link href="/">
-            <Button variant="outline" size="sm">
-              Home
-            </Button>
-          </Link>
+          <SignedOut>
+            <SignInButton />
+          </SignedOut>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
         </div>
       </div>
     </header>
-  )
+  );
 }
-
